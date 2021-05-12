@@ -15,7 +15,7 @@
 
 ![](../images/arch_screen_25.png)
 
-2. 安装中文分词插件，在elasticsearch-6.2.2\bin目录下执行以下命令：elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.2/elasticsearch-analysis-ik-6.2.2.zip
+2. 安装中文分词插件，在elasticsearch-6.2.2\bin目录下执行以下命令：.\elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.2/elasticsearch-analysis-ik-6.2.2.zip
 
 ![](../images/arch_screen_26.png)
 

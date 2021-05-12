@@ -3,6 +3,7 @@ package com.macro.mall.tiny.nosql.elasticsearch.repository;
 import com.macro.mall.tiny.nosql.elasticsearch.document.EsProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 /**
@@ -20,5 +21,8 @@ public interface EsProductRepository extends ElasticsearchRepository<EsProduct, 
      * @return
      */
     Page<EsProduct> findByNameOrSubTitleOrKeywords(String name, String subTitle, String keywords, Pageable page);
+
+    @Query("")
+    Page<EsProduct> fundById(String id);
 
 }

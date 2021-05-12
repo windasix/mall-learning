@@ -16,4 +16,7 @@ public interface MemberReadHistoryRepository extends MongoRepository<MemberReadH
      * @param memberId 会员id
      */
     List<MemberReadHistory> findByMemberIdOrderByCreateTimeDesc(Long memberId);
+
+    List<MemberReadHistory> countAllById(String id);
+
 }

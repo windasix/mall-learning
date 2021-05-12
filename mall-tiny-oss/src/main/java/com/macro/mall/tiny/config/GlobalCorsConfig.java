@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.util.pattern.PathPatternParser;
 
 /**
  * 全局跨域配置
@@ -27,8 +29,23 @@ public class GlobalCorsConfig {
         config.addAllowedHeader("*");
         //允许所有请求方法跨域调用
         config.addAllowedMethod("*");
+        config.addAllowedMethod("OPTIONS");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+
+
+    public CorsWebFilter corsWebFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.addAllowedMethod("*");
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource source =
+            new org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource(
+                new PathPatternParser());
+        return new CorsWebFilter(source);
+    }
+
+
 }
