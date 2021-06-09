@@ -15,6 +15,8 @@ import java.util.List;
  * Created by macro on 2019/4/19.
  */
 @Service
+
+@org.apache.dubbo.config.annotation.Service
 public class PmsBrandServiceImpl implements PmsBrandService {
     @Autowired
     private PmsBrandMapper brandMapper;
