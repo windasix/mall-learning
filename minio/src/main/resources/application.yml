@@ -9,7 +9,9 @@ spring:
   servlet:
     multipart:
       enabled: true #开启文件上传
-      max-file-size: 10MB #限制文件上传大小为10M
+      max-file-size: 1000000MB #限制文件上传大小为10M
+      max-request-size: 1000000MB
+      file-size-threshold: 1000000MB
 
 mybatis:
   mapper-locations:
@@ -17,8 +19,27 @@ mybatis:
     - classpath*:com/**/mapper/*.xml
 # MinIO对象存储相关配置
 minio:
-  endpoint: http://192.168.31.147:9000 #MinIO服务所在地址
-  bucketName: liveDingding #存储桶名称
+  endpoint: http://192.168.31.155:9000 #MinIO服务所在地址
+  bucketName: livedingding #存储桶名称
   accessKey: minioadmin #访问的key
   secretKey: minioadmin #访问的秘钥
+
+# mybatis-plus
+#mybatis-plus:
+#  mapperLocations: classpath:mybatis/*.xml
+#  global-config:
+#    db-config:
+#      #主键类型 AUTO:"数据库ID自增" INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+#      id-type: auto
+#      field-strategy: not_empty
+#      column-underline: true
+#      logic-delete-value: 0
+#      logic-not-delete-value: 1
+#      db-type: MYSQL
+#    refresh: false
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    cache-enabled: false
+#    call-setters-on-nulls: true
+#  type-aliases-package: com.hlgx.minio.entity.**
 
